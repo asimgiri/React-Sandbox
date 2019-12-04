@@ -6,7 +6,7 @@ export default function Scroll() {
     useEffect(() => {
         window.addEventListener('scroll', () => {
             setScroll(
-                s => window.scrollY / 2
+                window.scrollY / 2
             )
         })
     }, [])

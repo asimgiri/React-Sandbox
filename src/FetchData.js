@@ -16,11 +16,19 @@ export default function FetchData() {
             .catch(error => console.log(error))
     }
 
-    console.log(users[0])
+    console.log(users)
 
     return (
-        <div>
-                
+        <div className="container">
+            {users.map((value, index) => {
+                return (
+                    <div key={index} className="users">
+                        <img src={value.avatar_url} alt="" />
+                        <p>{value.login}</p>
+                        <p>{value.html_url}</p>
+                    </div>
+                )
+            })}
         </div>
     )
 }

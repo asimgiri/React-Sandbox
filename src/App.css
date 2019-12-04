@@ -17,3 +17,26 @@ button {
   height: 4px;
   position: fixed;
 }
+
+.container{
+  margin: auto;
+  text-align: center;
+}
+
+.container img{
+  width: 200px;
+  border-radius: .8rem;
+}
+
+.users{
+  padding: 1rem 0;
+}
+
+.users p{
+  margin-top: 1rem;
+}
+
+.users p:nth-child(3){
+  font-size: 14px;
+  color: rgb(117,117,117);
+}
