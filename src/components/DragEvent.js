@@ -1,13 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 
 let dragged;
 
 export default function DragEvent() {
 
     useEffect(() => {
+        document.body.addEventListener('dragstart', (event) => {
+            dragged = event.target;
+            event.target.style.opacity = .2;
+            console.log(dragged.parentNode);
+        })
+
         document.body.addEventListener('dragover', (event) => {
-            // console.log(event.target.id);
             event.preventDefault();
+        })
+
+        document.body.addEventListener('dragend', (event) => {
+            event.target.style.opacity = 1;
         })
 
         document.body.addEventListener('drop', (event) => {
@@ -16,22 +25,12 @@ export default function DragEvent() {
             if (event.target.className === "dropzone") {
                 dragged.parentNode.removeChild(dragged);
                 event.target.appendChild(dragged);
+                console.log(event.target)
             }
+
         })
 
-
-        document.body.addEventListener('dragstart', (event) => {
-            dragged = event.target;
-            console.log(dragged.parentNode);
-        })
-    })
-
-
-    const onDragEnterHandler = () => {
-        document.body.addEventListener('dragenter', (event) => {
-            // console.log(event.target.id)
-        })
-    }
+    }, [])
 
     return (
         <div>
